@@ -32,39 +32,53 @@ function playRound() {
     let computerChoice = getComputerChoice(); 
     if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
-            console.log("WIN");
+            alert("WIN");
             humanScore++;
         } else if (computerChoice === "paper") {
-            console.log("LOSE");
+            alert("LOSE");
             computerScore++;
         } else {
-            console.log("DRAW");
+            alert("DRAW");
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
-            console.log("WIN");
+            alert("WIN");
             humanScore++;
         } else if (computerChoice === "scissors") {
-            console.log("LOSE");
+            alert("LOSE");
             computerScore++;
         } else {
-            console.log("DRAW");
+            alert("DRAW");
         }
     } else {
         if (computerChoice === "paper") {
-            console.log("WIN");
+            alert("WIN");
             humanScore++;
         } else if (computerChoice === "rock") {
-            console.log("LOSE");
+            alert("LOSE");
             computerScore++;
         } else {
-            console.log("DRAW");
+            alert("DRAW");
         }
     }
-    
 }
 
+function gameLoop(numRounds) {
+    for (let i = 0; i < numRounds; i++) {
+        playRound();
+    }
+    alert(`Final Score: ${humanScore} (you) v. ${computerScore} (CPU)`); 
+    if (humanScore > computerScore) {
+        alert("You WIN!"); 
+    } else if (humanScore < computerScore) {
+        alert("You LOSE :(");
+    } else {
+        alert("Draw...");
+    }
+}
+
+gameLoop(5);
 
 // for (let i = 0; i < 100; i++) {
-//     console.log(getComputerChoice());
+//     alert(getComputerChoice());
 // }
