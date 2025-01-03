@@ -24,6 +24,47 @@ function getHumanChoice() {
     }
 }
 
-for (let i = 0; i < 100; i++) {
-    console.log(getComputerChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound() { 
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice(); 
+    if (humanChoice === "rock") {
+        if (computerChoice === "scissors") {
+            console.log("WIN");
+            humanScore++;
+        } else if (computerChoice === "paper") {
+            console.log("LOSE");
+            computerScore++;
+        } else {
+            console.log("DRAW");
+        }
+    } else if (humanChoice === "paper") {
+        if (computerChoice === "rock") {
+            console.log("WIN");
+            humanScore++;
+        } else if (computerChoice === "scissors") {
+            console.log("LOSE");
+            computerScore++;
+        } else {
+            console.log("DRAW");
+        }
+    } else {
+        if (computerChoice === "paper") {
+            console.log("WIN");
+            humanScore++;
+        } else if (computerChoice === "rock") {
+            console.log("LOSE");
+            computerScore++;
+        } else {
+            console.log("DRAW");
+        }
+    }
+    
 }
+
+
+// for (let i = 0; i < 100; i++) {
+//     console.log(getComputerChoice());
+// }
