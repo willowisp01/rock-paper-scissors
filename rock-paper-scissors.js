@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let rng = Math.floor(Math.random() * 3)
     switch(rng) {
@@ -10,25 +13,21 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() { 
-    let choice = prompt("Please select either r, p, or s."); 
-    switch(choice) {
-        case "r": 
-            return "rock";
-        case "p":
-            return "paper";
-        case "s":
-            return "scissors";
-        default: 
-            return undefined;
-    }
-}
+// function getHumanChoice() { 
+//     let choice = prompt("Please select either r, p, or s."); 
+//     switch(choice) {
+//         case "r": 
+//             return "rock";
+//         case "p":
+//             return "paper";
+//         case "s":
+//             return "scissors";
+//         default: 
+//             return undefined;
+//     }
+// }
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound() { 
-    let humanChoice = getHumanChoice();
+function playRound(humanChoice) { 
     let computerChoice = getComputerChoice(); 
     if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
@@ -77,7 +76,22 @@ function gameLoop(numRounds) {
     }
 }
 
-gameLoop(5);
+// gameLoop(5);
+
+const rockButton = document.querySelector("#button"); 
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+const buttons = document.querySelectorAll("button"); 
+// for each takes in some function too. 
+buttons.forEach((button) => {
+    // addEventListener takes in a event and some function. 
+    button.addEventListener("click", () => {
+        let humanChoice = button.textContent;
+        playRound(humanChoice);
+    })
+});
+
 
 // for (let i = 0; i < 100; i++) {
 //     alert(getComputerChoice());
