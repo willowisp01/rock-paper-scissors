@@ -27,8 +27,7 @@ function getComputerChoice() {
 //     }
 // }
 
-function playRound(humanChoice) { 
-    let computerChoice = getComputerChoice(); 
+function playRound(humanChoice, computerChoice) { 
     if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
             alert("WIN");
@@ -76,6 +75,18 @@ function gameLoop(numRounds) {
     }
 }
 
+const history = document.querySelector("ol") 
+const humanScoreDisplayed = document.querySelector("#humanScore");
+const computerScoreDisplayed = document.querySelector("#computerScore");
+
+function logRound(playerChoice, computerChoice) {
+    humanScoreDisplayed.textContent = humanScore;
+    computerScoreDisplayed.textContent = computerScore;
+    let round = document.createElement("li");
+    round.textContent = "Player chose: " + playerChoice + ". Computer chose: " + computerChoice + ".";
+    history.appendChild(round);
+}
+
 // gameLoop(5);
 
 const rockButton = document.querySelector("#button"); 
@@ -88,11 +99,8 @@ buttons.forEach((button) => {
     // addEventListener takes in a event and some function. 
     button.addEventListener("click", () => {
         let humanChoice = button.textContent;
-        playRound(humanChoice);
+        let computerChoice = getComputerChoice(); 
+        playRound(humanChoice, computerChoice);
+        logRound(humanChoice, computerChoice);
     })
 });
-
-
-// for (let i = 0; i < 100; i++) {
-//     alert(getComputerChoice());
-// }
